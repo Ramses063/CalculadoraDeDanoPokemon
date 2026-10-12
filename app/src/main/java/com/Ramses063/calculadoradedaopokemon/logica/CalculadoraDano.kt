@@ -64,6 +64,10 @@ fun CalcularDano (pokemonAtacante: Pokemon, pokemonDefensor: Pokemon, movimiento
         }
     }
 
+    println("Tipo del movimiento: ${movimiento.tipo}")
+    println("Tipo 1 del atacante: ${pokemonAtacante.tipo1}")
+    println("Tipo 2 del atacante: ${pokemonAtacante.tipo2}")
+
     if (movimiento.tipo == pokemonAtacante.tipo1 || movimiento.tipo == pokemonAtacante.tipo2){
         STAB = 1.5
     } else { STAB = 1.0 }
@@ -74,11 +78,11 @@ fun CalcularDano (pokemonAtacante: Pokemon, pokemonDefensor: Pokemon, movimiento
     val base = floor(paso3 / 50.0 + 2.0).toInt()
 
     val conRollMin = floor(base * 85.0 / 100.0).toInt()
-    val conStabMin = (conRollMin * 1.5 * 4096 / 4096).toInt()  // STAB
+    val conStabMin = (conRollMin * STAB).toInt()  // STAB
     val danoMinimo = floor(pokeRound(conStabMin.toDouble()) * efectividadTotal).toInt()
 
     val conRollMax = floor(base * 100.0 / 100.0).toInt()
-    val conStabMax = (conRollMax * 1.5 * 4096 / 4096).toInt()
+    val conStabMax = (conRollMax * STAB).toInt()
     val danoMaximo = floor(pokeRound(conStabMax.toDouble()) * efectividadTotal).toInt()
 
     val porcentajeMinimo = (danoMinimo.toDouble() / pokemonDefensor.hpFinal) * 100
@@ -86,8 +90,13 @@ fun CalcularDano (pokemonAtacante: Pokemon, pokemonDefensor: Pokemon, movimiento
 
     val baseCritica = (base *1.5).toInt()
 
-    val danoCriticoMinimo = ((baseCritica * STAB * efectividadTotal * 85) / 100).toInt()
-    val danoCriticoMaximo = ((baseCritica * STAB * efectividadTotal * 100) / 100).toInt()
+    val conRollMinCritico = floor(base * 85.0 / 100.0).toInt()
+    val conCriticoMin = floor(conRollMinCritico * 1.5).toInt()
+    val danoCriticoMinimo = floor(pokeRound(conCriticoMin.toDouble()) * STAB * efectividadTotal).toInt()
+
+    val conRollMaxCritico = floor(base * 100.0 / 100.0).toInt()
+    val conCriticoMax = floor(conRollMax * 1.5).toInt()
+    val danoCriticoMaximo = floor(pokeRound(conCriticoMax.toDouble()) * STAB * efectividadTotal).toInt()
 
     val porcentajeCriticoMinimo = (danoCriticoMinimo.toDouble() / pokemonDefensor.hpFinal) * 100
     val porcentajeCriticoMaximo = (danoCriticoMaximo.toDouble() / pokemonDefensor.hpFinal) * 100

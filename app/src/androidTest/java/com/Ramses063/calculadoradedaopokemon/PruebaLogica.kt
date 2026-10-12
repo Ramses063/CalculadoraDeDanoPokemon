@@ -14,7 +14,7 @@ class PruebaCalculadora {
     fun probarDano() {
         val primarina = Pokemon(
             nombre = "Charizard",
-            tipo1 = Tipo.FUEGO,
+            tipo1 = Tipo.PLANTA,
             tipo2 = Tipo.VOLADOR,
             nivel = 50,
             hp = 78,
@@ -46,15 +46,15 @@ class PruebaCalculadora {
 
         val pangoro = Pokemon(
             nombre = "Venusaur",
-            tipo1 = Tipo.LUCHA,
-            tipo2 = Tipo.SINIESTRO,
-            nivel = 100,
-            hp = 95,
-            ataque = 124,
-            defensa = 78,
-            ataqueEspecial = 69,
-            defensaEspecial = 71,
-            velocidad = 58,
+            tipo1 = Tipo.PLANTA,
+            tipo2 = Tipo.VENENO,
+            nivel = 50,
+            hp = 80,
+            ataque = 82,
+            defensa = 83,
+            ataqueEspecial = 100,
+            defensaEspecial = 100,
+            velocidad = 80,
             hpFinal = 0,
             ataqueFinal = 0,
             defensaFinal = 0,
@@ -77,9 +77,9 @@ class PruebaCalculadora {
         )
 
         val fuerzaLunar = Movimiento(
-            nombre = "Fuerza Lunar",
-            tipo = Tipo.HADA,
-            potencia = 95,
+            nombre = "Lanzallamas",
+            tipo = Tipo.FUEGO,
+            potencia = 90,
             categoria = CategoriaDeMovimiento.ESPECIAL
         )
 
