@@ -1,11 +1,13 @@
 package com.Ramses063.calculadoradedaopokemon
 
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.Pokemon
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.Tipo
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.Movimiento
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.CategoriaDeMovimiento
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.Naturalezas
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Pokemon
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Tipo
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Movimiento
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.CategoriaDeMovimiento
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Naturalezas
 import com.Ramses063.calculadoradedaopokemon.logica.CalcularDano
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Campos
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Climas
 import org.junit.Test
 
 class PruebaCalculadora {
@@ -13,16 +15,16 @@ class PruebaCalculadora {
     @Test
     fun probarDano() {
         val primarina = Pokemon(
-            nombre = "Charizard",
-            tipo1 = Tipo.PLANTA,
-            tipo2 = Tipo.VOLADOR,
+            nombre = "Pikachu",
+            tipo1 = Tipo.ELECTRICO,
+            tipo2 = Tipo.VACIO,
             nivel = 50,
-            hp = 78,
-            ataque = 84,
-            defensa = 78,
-            ataqueEspecial = 109,
-            defensaEspecial = 85,
-            velocidad = 100,
+            hp = 35,
+            ataque = 55,
+            defensa = 40,
+            ataqueEspecial = 50,
+            defensaEspecial = 50,
+            velocidad = 90,
             hpFinal = 0,
             ataqueFinal = 0,
             defensaFinal = 0,
@@ -45,16 +47,16 @@ class PruebaCalculadora {
         )
 
         val pangoro = Pokemon(
-            nombre = "Venusaur",
-            tipo1 = Tipo.PLANTA,
-            tipo2 = Tipo.VENENO,
+            nombre = "Ninetales Alola",
+            tipo1 = Tipo.FUEGO,
+            tipo2 = Tipo.VACIO,
             nivel = 50,
-            hp = 80,
-            ataque = 82,
-            defensa = 83,
-            ataqueEspecial = 100,
+            hp = 73,
+            ataque = 76,
+            defensa = 75,
+            ataqueEspecial = 81,
             defensaEspecial = 100,
-            velocidad = 80,
+            velocidad = 100,
             hpFinal = 0,
             ataqueFinal = 0,
             defensaFinal = 0,
@@ -77,13 +79,13 @@ class PruebaCalculadora {
         )
 
         val fuerzaLunar = Movimiento(
-            nombre = "Lanzallamas",
-            tipo = Tipo.FUEGO,
+            nombre = "Rayo",
+            tipo = Tipo.DRAGON,
             potencia = 90,
             categoria = CategoriaDeMovimiento.ESPECIAL
         )
 
-        val resultado = CalcularDano(primarina, pangoro, fuerzaLunar)
+        val resultado = CalcularDano(primarina, pangoro, fuerzaLunar, Climas.Despejado, Campos.Niebla)
         println("Daño mínimo: ${resultado.minimo}")
         println("Daño máximo: ${resultado.maximo}")
 

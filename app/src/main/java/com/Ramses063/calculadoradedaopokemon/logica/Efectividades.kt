@@ -1,5 +1,6 @@
 package com.Ramses063.calculadoradedaopokemon.logica
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.Tipo
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Climas
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Tipo
 
 val tablaEfectividades = mapOf(
     // ==================== SÚPER EFECTIVOS (×2.0) ====================
@@ -160,8 +161,14 @@ val tablaEfectividades = mapOf(
     (Tipo.HADA to Tipo.ACERO) to 0.5
 )
 
-fun calcularEfectividad(tipoAtacante: Tipo, tipoDefensor: Tipo): Double{
+fun calcularEfectividad(tipoAtacante: Tipo, tipoDefensor: Tipo, clima: Climas): Double{
 
-    return tablaEfectividades[tipoAtacante to tipoDefensor] ?: 1.0
+    val efectividadBase = tablaEfectividades[tipoAtacante to tipoDefensor] ?: 1.0
+
+    if (clima == Climas.Turbulencias && tipoDefensor == Tipo.VOLADOR && efectividadBase > 1.0){
+        return 1.0
+    }
+
+    return efectividadBase
 
 }

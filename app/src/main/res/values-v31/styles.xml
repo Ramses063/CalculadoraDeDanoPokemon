@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.CalculadoraDeDaoPokemon.Starting" parent="Theme.CalculadoraDeDañoPokemon">
+        <item name="windowSplashScreenBackground">#FF0A192F</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.CalculadoraDeDañoPokemon</item>
+    </style>
+</resources>

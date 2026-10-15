@@ -1,7 +1,7 @@
 package com.Ramses063.calculadoradedaopokemon.logica
 
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.Naturalezas
-import com.Ramses063.calculadoradedaopokemon.modelo.Pokemons.Pokemon
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Naturalezas
+import com.Ramses063.calculadoradedaopokemon.modelo.Clases.Pokemon
 
 data class CambioStatsNaturaleza(
 

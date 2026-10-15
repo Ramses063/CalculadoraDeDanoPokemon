@@ -1,4 +1,4 @@
-package com.Ramses063.calculadoradedaopokemon.modelo.Pokemons
+package com.Ramses063.calculadoradedaopokemon.modelo.Clases
 
 enum class Naturalezas {
     Activa,

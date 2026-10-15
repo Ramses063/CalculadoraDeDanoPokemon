@@ -15,7 +15,7 @@ android {
         minSdk = 24
         targetSdk = 36
         versionCode = 1
-        versionName = "0.1"
+        versionName = "0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,11 +34,12 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true   // <- añade esta línea
+        buildConfig = true
     }
 }
 
 dependencies {
+    implementation("androidx.core:core-splashscreen:1.2.0")
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
